@@ -1,0 +1,10 @@
+BasedOnStyle: llvm
+AlignConsecutiveAssignments: AcrossComments
+AlignConsecutiveMacros: AcrossComments
+AlignConsecutiveDeclarations: true
+IndentCaseLabels: true
+AllowShortIfStatementsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: true
+ColumnLimit: 81
