@@ -76,29 +76,29 @@ static int read_keypress(int fd) {
   char seq[5];
   seq[0] = next;
   if (read(fd, &seq[1], 1) != 1) return ESC;
-
   if (seq[0] == '[' || seq[0] == 'O') {
-    if (read(fd, &seq[2], 1) != 1) return ESC;
-    if (seq[2] == ';') {
-      if (read(fd, &seq[3], 1) != 1) return ESC;
-      if (read(fd, &seq[4], 1) != 1) return ESC;
-      int  mod = seq[3] - '0';
-      char k   = seq[4];
-      if (k == 'C') {
-        if (mod == 3) return KEY_WORD_RIGHT;
-        if (mod == 5) return KEY_END;
-      }
-      if (k == 'D') {
-        if (mod == 3) return KEY_WORD_LEFT;
-        if (mod == 5) return KEY_HOME;
-      }
-    } else if (seq[1] >= '0' && seq[1] <= '9') {
-      switch (seq[1]) {
-        case '1': return KEY_HOME;
-        case '3': return KEY_DELETE;
-        case '4': return KEY_END;
-        case '5': return KEY_PAGE_UP;
-        case '6': return KEY_PAGE_DOWN;
+    if (seq[1] >= '0' && seq[1] <= '9') {
+      if (read(fd, &seq[2], 1) != 1) return ESC;
+      if (seq[2] == ';') {
+        if (read(fd, &seq[3], 1) != 1) return ESC;
+        if (read(fd, &seq[4], 1) != 1) return ESC;
+        int  mod  = seq[3] - '0';
+        char keyc = seq[4];
+        if (keyc == 'C') {
+          if (mod == 3) return KEY_WORD_RIGHT;
+          if (mod == 5) return KEY_END;
+        } else if (keyc == 'D') {
+          if (mod == 3) return KEY_WORD_LEFT;
+          if (mod == 5) return KEY_HOME;
+        }
+      } else if (seq[2] == '~') {
+        switch (seq[1]) {
+          case '1': return KEY_HOME;
+          case '3': return KEY_DELETE;
+          case '4': return KEY_END;
+          case '5': return KEY_PAGE_UP;
+          case '6': return KEY_PAGE_DOWN;
+        }
       }
     } else {
       switch (seq[1]) {
@@ -107,6 +107,7 @@ static int read_keypress(int fd) {
         case 'C': return ARROW_RIGHT;
         case 'D': return ARROW_LEFT;
         case 'H': return KEY_HOME;
+        case 'F': return KEY_END;
       }
     }
   }
