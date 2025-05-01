@@ -34,7 +34,9 @@ Purely experimental and only created to be used in my (also experimental) shell,
 - [ ] Flicker-free screen redraw (off-screen buffer + diffing)
 - [x] Basic cursor movement (←/→, start/end of line)
 - [x] Insert/delete character and backspace
-- [ ] Line kill
+- [x] Line kill
+- [x] Word movement (Option+←/→)
+- [x] Delete word (Option+Backspace)
 
 ### History & Search
 
