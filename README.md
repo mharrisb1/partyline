@@ -11,11 +11,11 @@ Purely experimental and only created to be used in my (also experimental) shell,
 
 ### Core Editing
 
-- [ ] Raw-mode terminal I/O
-- [ ] Read single bytes/UTF-8 codepoints
+- [x] Raw-mode terminal I/O
+- [x] Read single bytes/UTF-8 codepoints
 - [ ] Flicker-free screen redraw (off-screen buffer + diffing)
-- [ ] Basic cursor movement (←/→, start/end of line)
-- [ ] Insert/delete character and backspace
+- [x] Basic cursor movement (←/→, start/end of line)
+- [x] Insert/delete character and backspace
 - [ ] Line kill
 
 ### History & Search
@@ -50,5 +50,5 @@ Purely experimental and only created to be used in my (also experimental) shell,
 
 ### Signals
 
-- [ ] SIGNINT (`ctrl+c`) to abort current line
+- [x] SIGNINT (`ctrl+c`) to abort current line
 - [ ] SIGWINCH to recompute width & refresh display
