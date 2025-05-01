@@ -147,10 +147,13 @@ char *partyline(const char *prompt) {
       buflen--;
       pos--;
 
+      write(STDOUT_FILENO, "\b", 1);
+
       size_t tail = buflen - pos;
-      write(STDOUT_FILENO, buf + pos, buflen - pos);
+      write(STDOUT_FILENO, buf + pos, tail);
       write(STDOUT_FILENO, " ", 1);
-      for (size_t i = 0; i < tail + i; i++)
+
+      for (size_t i = 0; i < tail + 1; i++)
         write(STDOUT_FILENO, "\b", 1);
     } else if (key == KEY_DELETE && pos < buflen) {
       memmove(buf + pos, buf + pos + 1, buflen - pos - 1);
@@ -159,7 +162,8 @@ char *partyline(const char *prompt) {
       size_t tail = buflen - pos;
       write(STDOUT_FILENO, buf + pos, tail);
       write(STDOUT_FILENO, " ", 1);
-      for (size_t i = 0; i < tail + i; i++)
+
+      for (size_t i = 0; i < tail + 1; i++)
         write(STDOUT_FILENO, "\b", 1);
     } else if (key == ARROW_LEFT && pos > 0) {
       write(STDOUT_FILENO, "\b", 1);
