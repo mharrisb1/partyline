@@ -4,6 +4,24 @@ Like [readline](https://tiswww.case.edu/php/chet/readline/rltop.html) and [linen
 
 Purely experimental and only created to be used in my (also experimental) shell, [tinyshell](https://github.com/mharrisb1/tinyshell).
 
+## Key Bindings
+
+| Key Sequence                | Action                                           |
+| --------------------------- | ------------------------------------------------ |
+| Printable characters        | Insert character at cursor                       |
+| Enter                       | Accept line; return the buffer (NULL-terminated) |
+| Backspace                   | Delete the character before the cursor           |
+| Option + Backspace          | Delete word before cursor                        |
+| Command + Backspace (MacOS) | Delete line                                      |
+| Left Arrow                  | Move cursor left                                 |
+| Right Arrow                 | Move cursor right                                |
+| Home                        | Move cursor to start of line                     |
+| End                         | Move cursor to end of line                       |
+| Option + Left Arrow         | Move cursor one word to the left                 |
+| Option + Right Arrow        | Move cursor one word to the right                |
+| Ctrl+C (SIGINT)             | Abort and return NULL                            |
+| Ctrl+D (EOT) / EOF          | End-of-file; return NULL                         |
+
 ## Features/Roadmap
 
 > [!WARNING]
