@@ -22,6 +22,21 @@ Purely experimental and only created to be used in my (also experimental) shell,
 | Ctrl+C (SIGINT)             | Abort and return NULL                            |
 | Ctrl+D (EOT) / EOF          | End-of-file; return NULL                         |
 
+## Running Example
+
+[`example.c`](./example.c) contains a simple echo application that uses `partyline` as the line editor. To run:
+
+```sh
+make
+./build/partyline_example
+```
+
+To clean, use:
+
+```sh
+make clean
+```
+
 ## Features/Roadmap
 
 > [!WARNING]
